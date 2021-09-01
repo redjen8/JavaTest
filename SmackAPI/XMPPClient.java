@@ -18,18 +18,14 @@ import org.jivesoftware.smack.tcp.XMPPTCPConnectionConfiguration;
 
 public class XMPPClient extends ChatMessageListener {
 
-    AbstractXMPPConnection connection;
+	AbstractXMPPConnection connection;
 
-    public void login(String userName, String password) throws Exception {
-		
+	public void login(String userName, String password) throws Exception {
+
 		XMPPTCPConnectionConfiguration config = XMPPTCPConnectionConfiguration.builder()
-				  .setUsernameAndPassword(userName, password)
-				  .setServiceName("localhost")
-				  .setHost("localhost")
-				  .setPort(5222)
-				  .setSecurityMode(SecurityMode.disabled) // Do not disable TLS except for test purposes!
-				  .setDebuggerEnabled(true)
-				  .build();
+				.setUsernameAndPassword(userName, password).setServiceName("localhost").setHost("localhost")
+				.setPort(5222).setSecurityMode(SecurityMode.disabled) // Do not disable TLS except for test purposes!
+				.setDebuggerEnabled(true).build();
 
 		connection = new XMPPTCPConnection(config);
 		connection.connect().login();
@@ -48,7 +44,7 @@ public class XMPPClient extends ChatMessageListener {
 		Chat chat = chatManager.createChat(to, this); // pass XmppClient instance as listener for received messages.
 		chat.sendMessage(message);
 	}
-	
+
 	/**
 	 * Displays received messages
 	 */
@@ -72,36 +68,37 @@ public class XMPPClient extends ChatMessageListener {
 			System.out.println(user + ":" + presenceType);
 		}
 	}
-	
+
 	public void disconnect() {
 		connection.disconnect();
 	}
-	
-	public static void main(String args[]) throws Exception {
 
-		XmppClient c = new XmppClient();
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		String msg;
+	// public static void main(String args[]) throws Exception {
 
-		// Enter your login information here
-		c.login("user1", "s0meP@ssW0rD");
-		
-		// Display online users
-		c.displayBuddyList();
+	// XmppClient c = new XmppClient();
+	// BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	// String msg;
 
-		System.out.println("Who do you want to talk to? - Type contacts full email address:");
-		String talkTo = br.readLine();
+	// // Enter your login information here
+	// c.login("user1", "s0meP@ssW0rD");
 
-		System.out.println("All messages will be sent to " + talkTo);
-		System.out.println("Enter your message in the console:");
-		System.out.println("-----\n");
+	// // Display online users
+	// c.displayBuddyList();
 
-		while (!(msg = br.readLine()).equals("bye")) {
-			c.sendMessage(msg, talkTo);
-		}
+	// System.out.println("Who do you want to talk to? - Type contacts full email
+	// address:");
+	// String talkTo = br.readLine();
 
-		c.disconnect();
-		System.exit(0);
-	}
+	// System.out.println("All messages will be sent to " + talkTo);
+	// System.out.println("Enter your message in the console:");
+	// System.out.println("-----\n");
+
+	// while (!(msg = br.readLine()).equals("bye")) {
+	// c.sendMessage(msg, talkTo);
+	// }
+
+	// c.disconnect();
+	// System.exit(0);
+	// }
 
 }
