@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.List;
 
-class StringTest {
+class GsonTest {
     public static void main(String[] args) {
         String netInfo = "{\"IPv4\":\"10.0.2.15/24\",\"IPv6\":\"fe80::3054:1f65:ee6f:2e5d/64\",\"MAC\":\"08:00:27:D1:86:FF\"}";
         System.out.println(netInfo);
