@@ -1,25 +1,30 @@
 import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-import java.lang.reflect.Type;
+import com.google.gson.JsonObject;
+
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.Map;
-import java.util.List;
+import org.json.*;
 
 class GsonTest {
     public static void main(String[] args) {
-        String netInfo = "{\"IPv4\":\"10.0.2.15/24\",\"IPv6\":\"fe80::3054:1f65:ee6f:2e5d/64\",\"MAC\":\"08:00:27:D1:86:FF\"}";
-        System.out.println(netInfo);
-        Gson gson = new Gson();
+        String netInfo = "[{\"IPv4\":\"10.51.10.98/24\",\"IPv6\":\"fe80::e4ed:e9f1:b3be:abb7/64\",\"MAC\":\"30:9C:23:C2:6C:33\"},{\"IPv4\":\"192.168.56.1/24\",\"IPv6\":\"fe80::f528:e525:63f:899c/64\",\"MAC\":\"0A:00:27:00:00:28\"}]";
+        // System.out.println(netInfo);
+        // netInfo = netInfo.substring(1, netInfo.length() - 1);
+        // netInfo = netInfo.replaceAll("\"", "\\\"");
+        // System.out.println(netInfo);
+        // Gson gson = new Gson();
 
-        try {
-            Map<String, Object> map = gson.fromJson(netInfo, Map.class);
-            for (Map.Entry<String, Object> entry : map.entrySet()) {
-                System.out.println(entry.getKey() + "=" + entry.getValue());
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        // try {
+        // Map<String, Object> map = gson.fromJson(netInfo, Map.class);
+        // for (Map.Entry<String, Object> entry : map.entrySet()) {
+        // System.out.println(entry.getKey() + "=" + entry.getValue());
+        // }
+        // } catch (Exception e) {
+        // e.printStackTrace();
+        // }
+        JSONArray jObject = new JSONArray(netInfo);
+        JSONObject oneObj = (JSONObject) jObject.get(1);
+        System.out.println(oneObj.getString("MAC"));
+        System.out.println(jObject.get(1).toString());
     }
 }
