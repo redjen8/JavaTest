@@ -1,0 +1,9 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "c:\\Users\\seokw\\Downloads\\totp-1.7.1.jar",
+        "c:\\Users\\seokw\\Downloads\\commons-codec-1.15-bin\\commons-codec-1.15\\commons-codec-1.15.jar",
+        "c:\\Users\\seokw\\Downloads\\core-3.4.1.jar",
+        "c:\\Users\\seokw\\Downloads\\javase-3.4.1.jar"
+    ]
+}
