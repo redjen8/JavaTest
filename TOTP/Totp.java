@@ -24,7 +24,7 @@ class Totp {
         QrData data = new QrData.Builder()
         .label(email)
         .secret(secret)
-        .issuer("App Name")
+        .issuer("TOTP Test")
         .algorithm(HashingAlgorithm.SHA1)
         .digits(6)
         .period(30)
