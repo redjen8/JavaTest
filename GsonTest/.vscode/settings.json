@@ -1,0 +1,8 @@
+{
+  "java.project.referencedLibraries": [
+    "lib/**/*.jar",
+    "c:\\Users\\softcamp\\Downloads\\gson-2.8.8.jar",
+    "c:\\Users\\softcamp\\Downloads\\json-20210307.jar",
+    "c:\\Users\\softcamp\\Downloads\\lombok.jar"
+  ]
+}

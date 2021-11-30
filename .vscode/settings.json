@@ -1,0 +1,6 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "c:\\Users\\softcamp\\Downloads\\commons-codec-1.9.jar"
+    ]
+}
